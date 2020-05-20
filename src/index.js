@@ -12,7 +12,7 @@ const server  = http.createServer(app)
 const io      = socketio(server)
 
 //Set Port
-const port    = process.env.port
+const port    = process.env.PORT || 3000
 
 //Public Path
 const pathToPublic = path.join(__dirname,'../public')
