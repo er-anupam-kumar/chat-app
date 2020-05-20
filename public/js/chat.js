@@ -1,7 +1,7 @@
 //Retrieving the query string
 const { username, room } = Qs.parse(location.search,{ignoreQueryPrefix:true})
 if(!username || !room){
-    window.location.href = '/'
+    return window.location.href = '/'
 }
 
 const socket = io()
@@ -96,7 +96,7 @@ socket.on('locationMessage',(location)=>{
 socket.emit('join', { username, room }, (error) => {
     if (error) {
         alert(error)
-        location.href = '/'
+        return location.href = '/'
     }
 })
 
