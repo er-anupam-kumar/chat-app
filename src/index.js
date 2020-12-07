@@ -62,6 +62,12 @@ io.on('connection', (socket) => {
         callback()
     })
 
+    socket.on('vkreate', (msg, callback) => {
+        console.log(msg)
+        callback()
+    })
+
+
     socket.on('sendLocation', ({ latitude, longitude }, callback) => {
         const user = getUser(socket.id)
         io.to(user.room).emit('locationMessage', generateLocationMessage(user.username, `https://google.com/maps?q=${latitude},${longitude}`))
